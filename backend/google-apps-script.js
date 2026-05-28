@@ -127,13 +127,13 @@ function createTestRecord() {
   const sheet = getSheet();
   const file = folder.createFile(
     "teste-painel-paulopolis.txt",
-    "Arquivo de teste criado pelo painel Paulopolis.",
+    "Arquivo de teste criado pelo painel Paulópolis.",
     MimeType.PLAIN_TEXT
   );
 
   sheet.appendRow([
     new Date(),
-    "Teste Paulopolis",
+    "Teste Paulópolis",
     "TESTE123",
     "(00) 00000-0000",
     file.getName(),

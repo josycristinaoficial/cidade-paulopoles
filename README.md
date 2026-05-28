@@ -1,4 +1,4 @@
-# Paulópoles - site de cadastro
+# Paulópolis - site de cadastro
 
 Site one page estático para publicar gratuitamente no GitHub Pages. O formulário pode salvar os dados gratuitamente usando Google Apps Script, Google Sheets e Google Drive.
 
@@ -61,7 +61,7 @@ Observação: os arquivos ficam privados no Google Drive. O administrador precis
 Suba os arquivos de dentro desta pasta:
 
 ```text
-C:\Users\Windows\Documents\Paulópoles
+C:\Users\Windows\Documents\Paulópolis
 ```
 
 O `index.html` precisa ficar na raiz do repositório, não dentro de uma pasta extra.
