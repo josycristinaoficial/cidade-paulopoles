@@ -4,7 +4,7 @@ const ADMIN_TOKEN = "030304";
 
 function doPost(event) {
   try {
-    const data = JSON.parse(event.postData.contents || "{}");
+    const data = parseSubmission(event);
     const folder = getFolder();
     const sheet = getSheet();
 
@@ -21,7 +21,7 @@ function doPost(event) {
     const file = folder.createFile(blob);
     file.setSharing(DriveApp.Access.PRIVATE, DriveApp.Permission.VIEW);
 
-    sheet.appendRow([
+    const row = [
       new Date(),
       data.fullName,
       data.passport,
@@ -29,12 +29,28 @@ function doPost(event) {
       data.receiptFileName,
       file.getUrl(),
       data.sentAt
-    ]);
+    ];
+
+    const nextRow = Math.max(sheet.getLastRow() + 1, 2);
+    sheet.getRange(nextRow, 1, 1, row.length).setValues([row]);
+    SpreadsheetApp.flush();
+
+    if (sheet.getRange(nextRow, 2).getValue() !== data.fullName) {
+      throw new Error("O comprovante foi salvo, mas a planilha nao confirmou a gravacao.");
+    }
 
     return jsonResponse({ ok: true, fileUrl: file.getUrl() });
   } catch (error) {
     return jsonResponse({ ok: false, error: error.message });
   }
+}
+
+function parseSubmission(event) {
+  if (event.parameter && event.parameter.payload) {
+    return JSON.parse(event.parameter.payload);
+  }
+
+  return JSON.parse((event.postData && event.postData.contents) || "{}");
 }
 
 function doGet(event) {
@@ -148,6 +164,15 @@ function jsonResponse(payload) {
   return ContentService
     .createTextOutput(JSON.stringify(payload))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function htmlResponse(payload) {
+  const message = JSON.stringify(Object.assign({ source: "paulopolis-form" }, payload));
+  return HtmlService.createHtmlOutput(
+    "<!doctype html><html><body><script>window.parent.postMessage(" +
+      message +
+      ", '*');</script></body></html>"
+  );
 }
 
 function jsonpResponse(payload, callback) {
