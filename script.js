@@ -44,14 +44,7 @@ if (form) {
         throw new Error("O envio ainda não está conectado ao Google Sheets.");
       }
 
-      await fetch(CONFIG.googleScriptUrl, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8"
-        },
-        body: JSON.stringify(payload)
-      });
+      await submitPayload(payload);
 
       sessionStorage.setItem("paulopolis:lastSubmission", payload.fullName);
       window.location.href = "obrigado.html";
@@ -71,6 +64,45 @@ function fileToBase64(file) {
     };
     reader.onerror = () => reject(new Error("Não foi possível ler o arquivo anexado."));
     reader.readAsDataURL(file);
+  });
+}
+
+function submitPayload(payload) {
+  return new Promise((resolve) => {
+    const frameName = `paulopolisSubmit_${Date.now()}`;
+    const iframe = document.createElement("iframe");
+    const relayForm = document.createElement("form");
+    const payloadInput = document.createElement("textarea");
+    let submitted = false;
+
+    iframe.name = frameName;
+    iframe.hidden = true;
+
+    payloadInput.name = "payload";
+    payloadInput.value = JSON.stringify(payload);
+
+    relayForm.method = "POST";
+    relayForm.action = CONFIG.googleScriptUrl;
+    relayForm.target = frameName;
+    relayForm.enctype = "application/x-www-form-urlencoded";
+    relayForm.style.display = "none";
+    relayForm.appendChild(payloadInput);
+
+    const cleanup = () => {
+      relayForm.remove();
+      iframe.remove();
+      resolve();
+    };
+
+    iframe.addEventListener("load", () => {
+      if (submitted) cleanup();
+    });
+
+    document.body.appendChild(iframe);
+    document.body.appendChild(relayForm);
+    submitted = true;
+    relayForm.submit();
+    window.setTimeout(cleanup, 6000);
   });
 }
 
