@@ -16,15 +16,15 @@ if (adminForm) {
 
     try {
       const response = await loadRegistrations(token);
-      if (!response.ok) throw new Error(response.error || "Nao foi possivel carregar.");
+      if (!response.ok) throw new Error(response.error || "Não foi possível carregar.");
 
       currentRecords = response.records || [];
       renderRecords(currentRecords);
       downloadCsvButton.disabled = currentRecords.length === 0;
       setAdminStatus(`${currentRecords.length} cadastro(s) carregado(s).`);
     } catch (error) {
-      renderEmpty(error.message || "Nao foi possivel carregar os cadastros.");
-      setAdminStatus(error.message || "Nao foi possivel carregar os cadastros.", true);
+      renderEmpty(error.message || "Não foi possível carregar os cadastros.");
+      setAdminStatus(error.message || "Não foi possível carregar os cadastros.", true);
     }
   });
 }

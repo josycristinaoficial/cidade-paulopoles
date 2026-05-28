@@ -326,7 +326,7 @@ small {
   min-height: 100vh;
   display: grid;
   align-content: center;
-  justify-items: start;
+  justify-items: center;
   gap: 30px;
   padding: clamp(24px, 8vw, 80px);
 }
@@ -336,20 +336,23 @@ small {
 }
 
 .thanks-panel {
-  max-width: 680px;
-  padding: clamp(24px, 5vw, 46px);
+  width: min(960px, 100%);
+  max-width: 960px;
+  padding: clamp(28px, 5vw, 58px);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow);
 }
 
 .thanks-panel h1 {
-  max-width: 13ch;
+  max-width: 860px;
   color: var(--teal-950);
-  font-size: clamp(2.3rem, 5vw, 4.7rem);
+  font-size: clamp(2.1rem, 4vw, 4.2rem);
+  line-height: 1.08;
 }
 
 .thanks-panel p:not(.eyebrow) {
+  max-width: 780px;
   margin: 20px 0 28px;
   color: var(--muted);
   font-size: 1.08rem;
