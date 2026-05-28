@@ -337,13 +337,23 @@ small {
 }
 
 .thanks-panel {
-  width: min(820px, 100%);
-  max-width: 820px;
-  padding: clamp(26px, 4vw, 50px);
+  width: min(1060px, 100%);
+  max-width: 1060px;
+  min-height: 420px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  padding: clamp(26px, 4vw, 50px) clamp(26px, 4vw, 56px);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow);
   overflow: hidden;
+}
+
+.thanks-copy {
+  position: relative;
+  z-index: 1;
 }
 
 .thanks-panel h1 {
@@ -362,9 +372,28 @@ small {
   line-height: 1.6;
 }
 
-.thanks-panel .primary-link,
-.thanks-panel .secondary-link {
+.thanks-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.thanks-actions .primary-link,
+.thanks-actions .secondary-link {
   margin: 0 10px 10px 0;
+}
+
+.thanks-figure {
+  align-self: end;
+  justify-self: end;
+  width: min(320px, 100%);
+  margin: 0 -16px -52px 0;
+}
+
+.thanks-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .admin-page {
@@ -510,8 +539,19 @@ small {
   .intro-grid,
   .form-section,
   .admin-tools,
-  .admin-login-row {
+  .admin-login-row,
+  .thanks-panel {
     grid-template-columns: 1fr;
+  }
+
+  .thanks-panel {
+    min-height: 0;
+  }
+
+  .thanks-figure {
+    justify-self: center;
+    width: min(260px, 74vw);
+    margin: 0 0 -42px;
   }
 
   .intro-grid article {
