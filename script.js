@@ -23,7 +23,7 @@ if (form) {
       }
 
       if (receipt.size > CONFIG.maxFileSizeMb * 1024 * 1024) {
-        throw new Error(`O comprovante deve ter ate ${CONFIG.maxFileSizeMb} MB.`);
+        throw new Error(`O comprovante deve ter até ${CONFIG.maxFileSizeMb} MB.`);
       }
 
       const payload = {
@@ -37,25 +37,26 @@ if (form) {
       };
 
       if (!payload.fullName || !payload.passport || !payload.phone) {
-        throw new Error("Preencha todos os campos obrigatorios.");
+        throw new Error("Preencha todos os campos obrigatórios.");
       }
 
-      if (CONFIG.googleScriptUrl) {
-        await fetch(CONFIG.googleScriptUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "text/plain;charset=utf-8"
-          },
-          body: JSON.stringify(payload)
-        });
-      } else {
-        console.warn("Configure CONFIG.googleScriptUrl para salvar cadastros no Google Sheets.");
+      if (!CONFIG.googleScriptUrl) {
+        throw new Error("O envio ainda não está conectado ao Google Sheets.");
       }
+
+      await fetch(CONFIG.googleScriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
 
       sessionStorage.setItem("paulopolis:lastSubmission", payload.fullName);
       window.location.href = "obrigado.html";
     } catch (error) {
-      setStatus(error.message || "Nao foi possivel enviar. Tente novamente.", true);
+      setStatus(error.message || "Não foi possível enviar. Tente novamente.", true);
       submitButton.disabled = false;
     }
   });
@@ -68,7 +69,7 @@ function fileToBase64(file) {
       const result = String(reader.result || "");
       resolve(result.split(",")[1] || "");
     };
-    reader.onerror = () => reject(new Error("Nao foi possivel ler o arquivo anexado."));
+    reader.onerror = () => reject(new Error("Não foi possível ler o arquivo anexado."));
     reader.readAsDataURL(file);
   });
 }
