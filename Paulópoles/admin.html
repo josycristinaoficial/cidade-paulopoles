@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel administrativo | Paulopolis</title>
+    <meta name="description" content="Painel administrativo Paulopolis para consultar cadastros.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="admin-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Paulopolis">
+        <img src="assets/logo-paulopolis.png" alt="Logo Paulopolis">
+        <span>Paulopolis</span>
+      </a>
+      <a class="header-action" href="index.html">Ver site</a>
+    </header>
+
+    <main class="admin-shell">
+      <section class="admin-heading">
+        <p class="eyebrow">Administrativo</p>
+        <h1>Painel de cadastros</h1>
+        <p>Consulte os dados enviados e abra os comprovantes salvos no Google Drive.</p>
+      </section>
+
+      <section class="admin-tools" aria-label="Acesso administrativo">
+        <form id="adminForm" class="admin-login">
+          <label for="adminToken">Senha do administrador</label>
+          <div class="admin-login-row">
+            <input id="adminToken" name="adminToken" type="password" autocomplete="current-password" required>
+            <button class="submit-button" type="submit">Carregar</button>
+          </div>
+        </form>
+
+        <button class="secondary-link" id="downloadCsv" type="button" disabled>Baixar dados CSV</button>
+        <p class="form-status" id="adminStatus" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="admin-table-wrap" aria-label="Cadastros recebidos">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Nome</th>
+              <th>Passaporte</th>
+              <th>Telefone</th>
+              <th>Comprovante</th>
+            </tr>
+          </thead>
+          <tbody id="registrationsBody">
+            <tr>
+              <td colspan="5">Digite a senha do administrador para carregar os cadastros.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

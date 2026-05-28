@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paulopolis | Cadastro</title>
+    <meta
+      name="description"
+      content="Cadastro Paulopolis com envio de dados pessoais e comprovante de pagamento."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Paulopolis">
+        <img src="assets/logo-paulopolis.png" alt="Logo Paulopolis">
+        <span>Paulopolis</span>
+      </a>
+      <a class="header-action" href="#cadastro">Enviar cadastro</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Cadastro Paulopolis">
+        <img class="hero-image" src="assets/hero-paulopolis.png" alt="Recepcao de evento internacional Paulopolis">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <img class="hero-logo" src="assets/logo-paulopolis.png" alt="">
+          <p class="eyebrow">Inscricoes abertas</p>
+          <h1>Cadastro Paulopolis</h1>
+          <p class="hero-copy">
+            Envie seus dados e o comprovante de pagamento para seguir para a etapa de pre-inscricao.
+          </p>
+          <a class="primary-link" href="#cadastro">Comecar cadastro</a>
+        </div>
+      </section>
+
+      <section class="intro-band" aria-label="Etapas">
+        <div class="intro-grid">
+          <article>
+            <strong>1</strong>
+            <span>Preencha seus dados</span>
+          </article>
+          <article>
+            <strong>2</strong>
+            <span>Anexe o comprovante</span>
+          </article>
+          <article>
+            <strong>3</strong>
+            <span>Continue para a pre-inscricao</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="cadastro" class="form-section" aria-labelledby="form-title">
+        <div class="section-heading">
+          <p class="eyebrow">Cadastro inicial</p>
+          <h2 id="form-title">Dados do participante</h2>
+        </div>
+
+        <form class="registration-form" id="registrationForm">
+          <div class="field">
+            <label for="fullName">Nome completo</label>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="passport">Numero do passaporte</label>
+            <input id="passport" name="passport" type="text" autocomplete="off" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Telefone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+
+          <div class="field file-field">
+            <label for="receipt">Comprovante de pagamento</label>
+            <input
+              id="receipt"
+              name="receipt"
+              type="file"
+              accept=".pdf,.jpg,.jpeg,.png,.webp"
+              required
+            >
+            <small>Formatos aceitos: PDF, JPG, PNG ou WEBP.</small>
+          </div>
+
+          <label class="consent">
+            <input id="consent" name="consent" type="checkbox" required>
+            <span>Confirmo que as informacoes enviadas estao corretas.</span>
+          </label>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+          <button class="submit-button" type="submit">
+            <span>Enviar cadastro</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Paulopolis</span>
+      <span>Cadastro e pre-inscricao</span>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
