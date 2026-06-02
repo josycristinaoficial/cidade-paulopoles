@@ -203,6 +203,67 @@ h2 {
   line-height: 1.35;
 }
 
+.lot-section {
+  padding: clamp(42px, 7vw, 82px) clamp(18px, 4vw, 32px) 0;
+}
+
+.lot-panel {
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.75fr);
+  gap: clamp(22px, 4vw, 42px);
+  align-items: stretch;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.lot-copy .eyebrow {
+  color: var(--coral);
+}
+
+.lot-copy h2 {
+  max-width: 780px;
+  color: var(--teal-950);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.lot-copy p {
+  max-width: 790px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.lot-copy strong {
+  color: var(--teal-950);
+}
+
+.lot-note {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--teal-950);
+  color: var(--white);
+}
+
+.lot-note strong {
+  color: var(--gold);
+  font-size: 0.84rem;
+  text-transform: uppercase;
+}
+
+.lot-note span {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.28;
+}
+
 .form-section {
   max-width: 1120px;
   display: grid;
@@ -495,6 +556,61 @@ small {
   cursor: not-allowed;
 }
 
+.proposal-page {
+  min-height: 100vh;
+  background: var(--teal-950);
+}
+
+.proposal-hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  padding: 112px clamp(18px, 6vw, 80px) 54px;
+}
+
+.proposal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(940px, 100%);
+  padding: clamp(26px, 5vw, 54px);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.proposal-panel .eyebrow {
+  color: var(--coral);
+}
+
+.proposal-panel h1 {
+  max-width: 900px;
+  color: var(--teal-950);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  white-space: normal;
+}
+
+.proposal-text {
+  max-width: 780px;
+  margin: 22px 0 30px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.62;
+}
+
+.proposal-text p {
+  margin: 0 0 16px;
+}
+
+.proposal-text strong {
+  color: var(--teal-950);
+}
+
+.proposal-link {
+  width: fit-content;
+}
+
 @media (max-width: 900px) {
   .site-header {
     padding: 10px 16px;
@@ -537,6 +653,7 @@ small {
   }
 
   .intro-grid,
+  .lot-panel,
   .form-section,
   .admin-tools,
   .admin-login-row,

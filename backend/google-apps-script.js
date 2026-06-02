@@ -19,7 +19,6 @@ function doPost(event) {
     );
 
     const file = folder.createFile(blob);
-    file.setSharing(DriveApp.Access.PRIVATE, DriveApp.Permission.VIEW);
 
     const row = [
       new Date(),
