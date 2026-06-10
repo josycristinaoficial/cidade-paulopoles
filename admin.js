@@ -82,6 +82,7 @@ function renderRecords(records) {
   registrationsBody.innerHTML = records.map((record) => `
     <tr>
       <td>${escapeHtml(record.date)}</td>
+      <td>${escapeHtml(record.applicationType)}</td>
       <td>${escapeHtml(record.fullName)}</td>
       <td>${escapeHtml(record.passport)}</td>
       <td>${escapeHtml(record.phone)}</td>
@@ -95,7 +96,7 @@ function renderRecords(records) {
 }
 
 function renderEmpty(message) {
-  registrationsBody.innerHTML = `<tr><td colspan="5">${escapeHtml(message)}</td></tr>`;
+  registrationsBody.innerHTML = `<tr><td colspan="6">${escapeHtml(message)}</td></tr>`;
 }
 
 function setAdminStatus(message, isError = false) {
@@ -105,12 +106,13 @@ function setAdminStatus(message, isError = false) {
 
 function toCsv(records) {
   const rows = [
-    ["Data", "Nome completo", "Passaporte", "Telefone", "Comprovante"]
+    ["Data", "Opção", "Nome completo", "Passaporte", "Telefone", "Comprovante"]
   ];
 
   records.forEach((record) => {
     rows.push([
       record.date,
+      record.applicationType,
       record.fullName,
       record.passport,
       record.phone,

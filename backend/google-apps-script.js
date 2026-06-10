@@ -27,7 +27,8 @@ function doPost(event) {
       data.phone,
       data.receiptFileName,
       file.getUrl(),
-      data.sentAt
+      data.sentAt,
+      data.applicationType || "Pré-inscrição com análise — R$ 200k"
     ];
 
     const nextRow = Math.max(sheet.getLastRow() + 1, 2);
@@ -88,7 +89,8 @@ function doGet(event) {
         phone: row[3],
         receiptFileName: row[4],
         receiptUrl: row[5],
-        sentAt: row[6]
+        sentAt: row[6],
+        applicationType: row[7] || "Pré-inscrição com análise — R$ 200k"
       };
     })
     .reverse();
@@ -112,8 +114,13 @@ function getSheet() {
       "Telefone",
       "Arquivo",
       "Link do comprovante",
-      "Enviado em"
+      "Enviado em",
+      "Opção"
     ]);
+  }
+
+  if (sheet.getRange(1, 8).getValue() !== "Opção") {
+    sheet.getRange(1, 8).setValue("Opção");
   }
 
   return sheet;
@@ -153,7 +160,8 @@ function createTestRecord() {
     "(00) 00000-0000",
     file.getName(),
     file.getUrl(),
-    new Date().toISOString()
+    new Date().toISOString(),
+    "Teste Paulópolis"
   ]);
 
   return { ok: true, fileUrl: file.getUrl() };

@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Paulópolis | Cadastro</title>
+    <title>Paulópolis | Entrada</title>
     <meta
       name="description"
-      content="Cadastro Paulópolis com envio de dados pessoais e comprovante de pagamento."
+      content="Escolha entre pré-inscrição com análise ou compra direta de passaporte em Paulópolis."
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,36 +21,63 @@
       <a class="brand" href="index.html" aria-label="Paulópolis">
         <span>Paulópolis</span>
       </a>
-      <a class="header-action" href="#cadastro">Enviar cadastro</a>
+      <a class="header-action" href="#opcoes">Escolher opção</a>
     </header>
 
     <main>
-      <section class="hero" aria-label="Cadastro Paulópolis">
+      <section class="hero" aria-label="Entrada Paulópolis">
         <img class="hero-image" src="assets/hero-paulopolis.png" alt="Imagem principal de Paulópolis">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow">Inscrições abertas</p>
-          <h1>Cadastro Paulópolis</h1>
+          <p class="eyebrow">Paulópolis</p>
+          <h1>Escolha sua entrada</h1>
           <p class="hero-copy">
-            Envie seus dados e o comprovante de pagamento para seguir para a etapa de pré-inscrição.
+            Selecione a modalidade desejada, envie seus dados e anexe o print do comprovante de pagamento feito no jogo.
           </p>
-          <a class="primary-link" href="#cadastro">Começar cadastro</a>
+          <a class="primary-link" href="#opcoes">Ver opções</a>
         </div>
       </section>
 
-      <section class="intro-band" aria-label="Etapas">
-        <div class="intro-grid">
-          <article>
-            <strong>1</strong>
-            <span>Preencha seus dados</span>
+      <section id="opcoes" class="choice-section" aria-labelledby="choice-title">
+        <div class="section-heading choice-heading">
+          <p class="eyebrow">Opções de cadastro</p>
+          <h2 id="choice-title">Como você deseja entrar em Paulópolis?</h2>
+        </div>
+
+        <div class="choice-grid">
+          <article class="choice-card">
+            <p class="eyebrow">Pré-inscrição</p>
+            <h3>Pré-inscrição com análise de aprovação</h3>
+            <p>
+              Para quem deseja participar do processo normal de entrada em Paulópolis. O cadastro será analisado pela
+              equipe, e a aprovação não é automática.
+            </p>
+            <div class="choice-meta">
+              <span>Valor</span>
+              <strong>R$ 200k</strong>
+            </div>
+            <a class="primary-link" href="pre-inscricao.html" target="_blank" rel="noopener">
+              Fazer pré-inscrição
+            </a>
           </article>
-          <article>
-            <strong>2</strong>
-            <span>Anexe o comprovante</span>
-          </article>
-          <article>
-            <strong>3</strong>
-            <span>Continue para a pré-inscrição</span>
+
+          <article class="choice-card choice-card-direct">
+            <p class="eyebrow">Passaporte direto</p>
+            <h3>Compra direta de passaporte</h3>
+            <p>
+              Para quem deseja garantir o passaporte diretamente, sem fila e sem passar pelo processo de avaliação.
+            </p>
+            <div class="choice-meta">
+              <span>Valor</span>
+              <strong>R$ 350k</strong>
+            </div>
+            <div class="choice-meta">
+              <span>Status</span>
+              <strong>Aprovação direta</strong>
+            </div>
+            <a class="primary-link" href="compra-passaporte.html" target="_blank" rel="noopener">
+              Comprar passaporte direto
+            </a>
           </article>
         </div>
       </section>
@@ -58,17 +85,16 @@
       <section class="lot-section" aria-labelledby="lot-title">
         <div class="lot-panel">
           <div class="lot-copy">
-            <p class="eyebrow">2º lote</p>
+            <p class="eyebrow">Informações de pagamento</p>
             <h2 id="lot-title">O 2º lote abre no dia 03/06</h2>
             <p>
-              O valor do 2º lote é de <strong>R$ 200.000,00</strong>. O pagamento deve ser feito via
-              <strong>PIX: paulopolis</strong>. Não é transferência.
+              O pagamento deve ser feito via <strong>PIX: paulopolis</strong>. Não é transferência.
             </p>
             <p>
               Serão somente mais <strong>100 vagas</strong>. No primeiro lote, tivemos <strong>126 cadastros</strong>.
             </p>
             <p>
-              O comprovante deve ser printado e enviado juntamente com os dados do cadastro abaixo.
+              O comprovante deve ser printado e enviado juntamente com os dados no formulário escolhido.
             </p>
             <p>
               Dúvidas: <strong>011 763-303</strong>
@@ -80,62 +106,12 @@
           </div>
         </div>
       </section>
-
-      <section id="cadastro" class="form-section" aria-labelledby="form-title">
-        <div class="section-heading">
-          <p class="eyebrow">Cadastro inicial</p>
-          <h2 id="form-title">Dados do participante</h2>
-        </div>
-
-        <form class="registration-form" id="registrationForm">
-          <div class="field">
-            <label for="fullName">Nome completo</label>
-            <input id="fullName" name="fullName" type="text" autocomplete="name" required>
-          </div>
-
-          <div class="field">
-            <label for="passport">Número do passaporte</label>
-            <input id="passport" name="passport" type="text" autocomplete="off" required>
-          </div>
-
-          <div class="field">
-            <label for="phone">Telefone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-          </div>
-
-          <div class="field file-field">
-            <label for="receipt">Comprovante de pagamento</label>
-            <input
-              id="receipt"
-              name="receipt"
-              type="file"
-              accept=".jpg,.jpeg,.png,.webp"
-              required
-            >
-            <small>Envie o print do comprovante em JPG, PNG ou WEBP.</small>
-          </div>
-
-          <label class="consent">
-            <input id="consent" name="consent" type="checkbox" required>
-            <span>Confirmo que as informações enviadas estão corretas.</span>
-          </label>
-
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-
-          <button class="submit-button" type="submit">
-            <span>Enviar cadastro</span>
-          </button>
-        </form>
-      </section>
     </main>
 
     <footer class="site-footer">
       <span>Paulópolis</span>
-      <span>Cadastro e pré-inscrição</span>
+      <span>Entrada e passaporte</span>
       <small>@hopejoyoficial</small>
     </footer>
-
-    <script src="config.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>
