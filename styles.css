@@ -215,6 +215,11 @@ h2 {
   margin-bottom: clamp(24px, 4vw, 38px);
 }
 
+.section-heading.choice-heading {
+  position: static;
+  top: auto;
+}
+
 .choice-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -325,18 +330,18 @@ h2 {
   gap: 10px;
   padding: 24px;
   border-radius: 8px;
-  background: var(--teal-950);
+  background: var(--coral);
   color: var(--white);
 }
 
 .lot-note strong {
-  color: var(--gold);
-  font-size: 0.84rem;
+  color: var(--white);
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
   text-transform: uppercase;
 }
 
 .lot-note span {
-  font-size: 1.3rem;
+  font-size: clamp(1.55rem, 2.6vw, 2.25rem);
   font-weight: 800;
   line-height: 1.28;
 }
