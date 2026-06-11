@@ -42,7 +42,7 @@ if (form) {
         fullName: String(data.get("fullName") || "").trim(),
         passport: String(data.get("passport") || "").trim(),
         phone: String(data.get("phone") || "").trim(),
-        applicationType: String(data.get("applicationType") || "Pré-inscrição com análise — R$ 200k").trim(),
+        applicationType: String(data.get("applicationType") || "Pré-inscrição com análise — 3º lote — R$ 250k").trim(),
         receiptFileName: receipt.name,
         receiptMimeType: receipt.type || "application/octet-stream",
         receiptBase64: await fileToBase64(receipt),

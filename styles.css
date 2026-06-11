@@ -226,6 +226,12 @@ h2 {
   gap: clamp(18px, 4vw, 32px);
 }
 
+.choice-grid-single {
+  max-width: 560px;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+}
+
 .choice-card {
   display: grid;
   align-content: start;
