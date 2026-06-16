@@ -1,4 +1,4 @@
-const form = document.querySelector("#registrationForm");
+﻿const form = document.querySelector("#registrationForm");
 const statusEl = document.querySelector("#formStatus");
 const preRegistrationLink = document.querySelector("#preRegistrationLink");
 const thanksTitle = document.querySelector("#thanksTitle");
@@ -6,16 +6,6 @@ const thanksMessage = document.querySelector("#thanksMessage");
 
 if (preRegistrationLink) {
   preRegistrationLink.href = CONFIG.preRegistrationUrl;
-}
-
-const lastApplicationType = sessionStorage.getItem("paulopolis:lastApplicationType") || "";
-
-if (thanksTitle && thanksMessage && lastApplicationType.includes("Compra direta")) {
-  thanksTitle.textContent = "Parabéns!";
-  thanksMessage.textContent = "Em breve você receberá o seu passaporte em sua mochila. Seja bem-vindo a Paulópolis, a cidade do futuro.";
-  if (preRegistrationLink) {
-    preRegistrationLink.remove();
-  }
 }
 
 if (form) {

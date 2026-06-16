@@ -1,4 +1,4 @@
-# Paulópolis - site de cadastro
+﻿# Paulópolis - site de cadastro
 
 Site one page estático para publicar gratuitamente no GitHub Pages. O formulário pode salvar os dados gratuitamente usando Google Apps Script, Google Sheets e Google Drive.
 
@@ -44,13 +44,7 @@ googleScriptUrl: ""
 
 O painel fica em `admin.html`. Ele pede uma senha administrativa e carrega os registros salvos na planilha.
 
-No arquivo `backend/google-apps-script.js`, troque:
-
-```js
-ADMIN_TOKEN = "TROQUE_POR_UMA_SENHA_FORTE"
-```
-
-por uma senha forte. Essa mesma senha será digitada no painel `admin.html`.
+O codigo do Apps Script nao deve ser publicado no GitHub. A senha administrativa fica protegida no Apps Script por hash.
 
 Para baixar os comprovantes, use o link `Baixar comprovante` na tabela do painel. Para baixar os dados, clique em `Baixar dados CSV`.
 
