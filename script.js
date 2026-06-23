@@ -79,7 +79,7 @@ function submitPayload(payload) {
     },
     body: JSON.stringify(payload)
   }).then(async (response) => {
-    const result = await response.json();
+    const result = parseServerResponse(await response.text());
 
     if (!result.ok) {
       throw new Error(result.error || "Não foi possível salvar o cadastro.");
@@ -87,6 +87,26 @@ function submitPayload(payload) {
 
     return result;
   });
+}
+
+function parseServerResponse(text) {
+  const cleanText = String(text || "").trim();
+
+  if (!cleanText) {
+    throw new Error("O servidor não retornou confirmação do cadastro.");
+  }
+
+  try {
+    return JSON.parse(cleanText);
+  } catch (jsonError) {
+    const jsonpMatch = cleanText.match(/^[a-zA-Z0-9_$]+\(([\s\S]*)\);?$/);
+
+    if (jsonpMatch) {
+      return JSON.parse(jsonpMatch[1]);
+    }
+
+    throw jsonError;
+  }
 }
 
 function setStatus(message, isError = false) {
