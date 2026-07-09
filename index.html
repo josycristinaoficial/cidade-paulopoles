@@ -3,96 +3,87 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Paulópolis | Pré-inscrição</title>
-    <meta
-      name="description"
-      content="Pré-inscrição com análise para entrada em Paulópolis."
-    >
+    <title>Paulópolis | Pré-inscrição encerrada</title>
+    <meta name="description" content="Pré-inscrição Paulópolis encerrada no momento.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css">
+    <style>
+      :root {
+        --teal: #05363b;
+        --coral: #f45650;
+        --gold: #d8a629;
+        --paper: #f8f5ed;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 28px;
+        font-family: Inter, Arial, sans-serif;
+        color: var(--teal);
+        text-align: center;
+        color: var(--white);
+        background:
+          linear-gradient(rgba(5, 54, 59, 0.7), rgba(5, 54, 59, 0.7)),
+          url("assets/hero-paulopolis.png") center / cover no-repeat,
+          var(--teal);
+      }
+
+      .maintenance-card {
+        width: min(900px, 100%);
+        padding: clamp(28px, 6vw, 64px);
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--coral);
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 900px;
+        font-size: clamp(2.4rem, 8vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+        text-shadow: 0 8px 32px rgba(0, 0, 0, 0.36);
+      }
+
+      p {
+        margin: 24px 0 0;
+        max-width: 760px;
+        color: var(--white);
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        font-weight: 700;
+        line-height: 1.55;
+        text-shadow: 0 6px 24px rgba(0, 0, 0, 0.34);
+      }
+
+      .brand {
+        display: inline-block;
+        margin-top: 30px;
+        color: var(--gold);
+        font-weight: 800;
+      }
+    </style>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Paulópolis">
-        <span>Paulópolis</span>
-      </a>
-      <a class="header-action" href="pre-inscricao.html" target="_blank" rel="noopener">Fazer pré-inscrição</a>
-    </header>
-
-    <main>
-      <section class="hero" aria-label="Entrada Paulópolis">
-        <img class="hero-image" src="assets/hero-paulopolis.png" alt="Imagem principal de Paulópolis">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Paulópolis</p>
-          <h1>Pré-inscrição Paulópolis</h1>
-          <p class="hero-copy">
-            Envie seus dados e anexe o print do comprovante de pagamento feito no jogo para participar da análise.
-          </p>
-          <a class="primary-link" href="pre-inscricao.html" target="_blank" rel="noopener">Fazer pré-inscrição</a>
-        </div>
-      </section>
-
-      <section id="opcoes" class="choice-section" aria-labelledby="choice-title">
-        <div class="section-heading choice-heading">
-          <p class="eyebrow">Cadastro</p>
-          <h2 id="choice-title">Pré-inscrição com análise</h2>
-        </div>
-
-        <div class="choice-grid choice-grid-single">
-          <article class="choice-card">
-            <p class="eyebrow">Pré-inscrição</p>
-            <h3>Pré-inscrição com análise de aprovação</h3>
-            <p>
-              Sua inscrição será analisada pela equipe, que avaliará as informações e respostas enviadas no cadastro.
-              O envio da pré-inscrição não garante aprovação. Os candidatos aprovados receberão seus passaportes
-              diretamente em suas mochilas.
-            </p>
-            <div class="choice-meta">
-              <span>Valor</span>
-              <strong>3º lote - R$ 250k</strong>
-            </div>
-            <a class="primary-link" href="pre-inscricao.html" target="_blank" rel="noopener">
-              Fazer pré-inscrição
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section class="lot-section" aria-labelledby="lot-title">
-        <div class="lot-panel">
-          <div class="lot-copy">
-            <p class="eyebrow">Informações de pagamento</p>
-            <p>
-              O pagamento deve ser feito via <strong>Pix: paulopolis</strong>.
-            </p>
-            <p>
-              <strong>Observação:</strong> não é transferência.
-            </p>
-            <p>
-              O comprovante deve ser printado em game e enviado juntamente com os dados da pré-inscrição.
-            </p>
-            <p>
-              Dúvidas: <strong>011 763-303</strong>
-            </p>
-          </div>
-          <div class="lot-note">
-            <strong>Atenção</strong>
-            <span>Todos os comprovantes enviados serão conferidos.</span>
-          </div>
-        </div>
-      </section>
+    <main class="maintenance-card" aria-labelledby="maintenance-title">
+      <h1 id="maintenance-title">Pré-inscrição encerrada no momento.</h1>
+      <p>Aguardem para uma nova data de liberação.</p>
     </main>
-
-    <footer class="site-footer">
-      <span>Paulópolis</span>
-      <span>Pré-inscrição</span>
-      <small>@hopejoyoficial</small>
-    </footer>
   </body>
 </html>
